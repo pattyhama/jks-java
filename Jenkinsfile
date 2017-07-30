@@ -48,15 +48,15 @@ pipeline {
         }
       }
     }
-    stage('deploy') {
-      agent {
-        label 'java8'
-      }
-      steps {
-        sh "if ![ls -d '/var/www/html/rectangles/all/${env.BRANCH_NAME}' ]; then mkdir /var/www/html/rectangles/all/${env.BRANCH_NAME}; fi"
-        sh "cp dist/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/${env.BRANCH_NAME}/"
-      }
-    }
+//    stage('deploy') {
+//      agent {
+//        label 'java8'
+//      }
+//      steps {
+//        sh "if ![ -d '/var/www/html/rectangles/all/${env.BRANCH_NAME}' ]; then mkdir /var/www/html/rectangles/all/${env.BRANCH_NAME}; fi"
+//        sh "cp dist/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/${env.BRANCH_NAME}/"
+//      }
+//    }
     stage("Running on CentOS") {
       agent {
         label 'CentOS'
