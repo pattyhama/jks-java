@@ -26,15 +26,15 @@ pipeline {
         }
       }
     }
-    stage('Unit Tests') {
-      agent {
-        label 'java8'
-      }
-      steps {
-        sh 'ant -f test.xml -v'
-        junit 'reports/result.xml'
-      }
-    }
+//    stage('Unit Tests') {
+//      agent {
+//        label 'java8'
+//      }
+//      steps {
+//        sh 'ant -f test.xml -v'
+//        junit 'reports/result.xml'
+//      }
+//    }
     stage('build') {
       agent {
         label 'java8'
