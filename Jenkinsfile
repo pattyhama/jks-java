@@ -10,7 +10,7 @@ pipeline {
       agent any
 
       steps {
-        sayHello 'Awesome Student!'
+        sayHello 'Awesome Man!'
       }
     }
     stage('Git Information') {
@@ -20,7 +20,7 @@ pipeline {
         echo "My Branch Name: ${env.BRANCH_NAME}"
 
         script {
-          def myLib = new gitrepo.git.gitStuff();
+          def myLib = new pattyhama.git.gitStuff();
 
           echo "My Commit: ${myLib.gitCommit("${env.WORKSPACE}/.git")}"
         }
