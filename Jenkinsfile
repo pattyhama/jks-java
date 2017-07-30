@@ -28,7 +28,7 @@ pipeline {
     }
     stage('Unit Tests') {
       agent {
-        label 'none'
+        label 'master'
       }
       steps {
         sh 'ant -f test.xml -v'
@@ -37,7 +37,7 @@ pipeline {
     }
     stage('build') {
       agent {
-        label 'none'
+        label 'master'
       }
       steps {
         sh 'ant -f build.xml -v'
@@ -50,7 +50,7 @@ pipeline {
     }
     stage('deploy') {
       agent {
-        label 'none'
+        label 'master'
       }
       steps {
         sh "if ![ -d '/var/www/html/rectangles/all/${env.BRANCH_NAME}' ]; then mkdir /var/www/html/rectangles/all/${env.BRANCH_NAME}; fi"
@@ -77,7 +77,7 @@ pipeline {
     }
     stage('Promote to Green') {
       agent {
-        label 'none'
+        label 'master'
       }
       when {
         branch 'master'
@@ -88,7 +88,7 @@ pipeline {
     }
     stage('Promote Development Branch to Master') {
       agent {
-        label 'none'
+        label 'master'
       }
       when {
         branch 'development'
