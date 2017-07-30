@@ -6,13 +6,13 @@ pipeline {
   }
 
   stages {
-    stage('Say Hello') {
-      agent any
+//    stage('Say Hello') {
+//      agent any
 
 //      steps {
 //        sayHello 'Awesome Man!'
 //      }
-    }
+//    }
     stage('Git Information') {
       agent any
 
